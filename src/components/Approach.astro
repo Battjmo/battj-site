@@ -1,0 +1,51 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Assess',
+    description: 'Understand your team, stack, and bottlenecks — no generic audits, just what matters now.',
+  },
+  {
+    number: '02',
+    title: 'Prioritize',
+    description: 'Identify the highest-leverage changes that unblock growth without slowing shipping.',
+  },
+  {
+    number: '03',
+    title: 'Execute',
+    description: 'Hands-on leadership alongside your team — coaching, building, and establishing durable habits.',
+  },
+  {
+    number: '04',
+    title: 'Hand off',
+    description: "Leave you with systems and people who can run without me. That's the goal.",
+  },
+];
+---
+
+<section id="approach" class="bg-indigo py-24 text-frozen">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-widest text-frosted">Approach</p>
+      <h2 class="font-display mt-3 text-3xl font-semibold md:text-4xl">
+        Practical, embedded, outcome-focused
+      </h2>
+      <p class="mt-4 text-lg leading-relaxed text-frosted">
+        Engagements are tailored to your stage — fractional leadership, targeted projects, or
+        advisory — always with clear deliverables and a path to independence.
+      </p>
+    </div>
+
+    <ol class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        steps.map((step) => (
+          <li>
+            <span class="font-display text-3xl font-semibold text-scarlet">{step.number}</span>
+            <h3 class="mt-4 text-lg font-semibold">{step.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-frosted">{step.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

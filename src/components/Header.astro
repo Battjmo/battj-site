@@ -1,0 +1,33 @@
+---
+const navLinks = [
+  { href: '#services', label: 'Services' },
+  { href: '#approach', label: 'Approach' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-indigo/95 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="font-display text-xl font-semibold tracking-tight text-frozen">
+      Battj<span class="text-scarlet">.</span>
+    </a>
+    <nav class="hidden items-center gap-8 sm:flex">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-frosted transition-colors hover:text-frozen"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+    <a
+      href="#contact"
+      class="rounded-full bg-scarlet px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-scarlet/90"
+    >
+      Get in touch
+    </a>
+  </div>
+</header>

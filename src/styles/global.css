@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-scarlet: #d64045;
+  --color-frozen: #e9fff9;
+  --color-frosted: #9ed8db;
+  --color-cerulean: #467599;
+  --color-indigo: #1d3354;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-indigo);
+  background-color: var(--color-frozen);
+}
