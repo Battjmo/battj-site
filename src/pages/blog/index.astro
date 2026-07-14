@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Blog — Battj LLC" description="Notes on engineering management for growing startups.">
+  <Header />
+  <main>
+    <section class="mx-auto max-w-3xl px-6 py-32">
+      <p class="text-sm font-semibold uppercase tracking-widest text-frosted">Blog</p>
+
+      <ul class="mt-14 flex flex-col gap-10">
+        {
+          posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}`} class="group block">
+                <p class="text-sm text-cerulean">
+                  {post.data.pubDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </p>
+                <h2 class="font-display mt-2 text-xl font-semibold text-indigo group-hover:text-scarlet">
+                  {post.data.title}
+                </h2>
+                <p class="mt-2 text-cerulean leading-relaxed">{post.data.description}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
