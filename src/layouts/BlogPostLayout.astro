@@ -1,0 +1,41 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+}
+
+const { title, description, pubDate } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${title} — Battj LLC`} description={description}>
+  <Header />
+  <main>
+    <article class="mx-auto max-w-3xl px-6 py-32">
+      <p class="text-sm font-semibold uppercase tracking-widest text-cerulean">{formattedDate}</p>
+      <h1 class="font-display mt-3 text-3xl font-semibold md:text-4xl">{title}</h1>
+      <div
+        class="mt-10 text-lg [&>h2]:font-display [&>h2]:mt-10 [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:text-indigo [&>ol]:mt-5 [&>ol]:list-decimal [&>ol]:pl-5 [&>ol]:leading-relaxed [&>p]:mt-5 [&>p]:leading-relaxed [&>ul]:mt-5 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:leading-relaxed [&_a]:text-scarlet [&_a]:underline [&_a]:underline-offset-2 [&_li]:mt-2 [&_strong]:font-semibold [&_strong]:text-indigo"
+      >
+        <slot />
+      </div>
+      <a
+        href="/blog"
+        class="mt-16 inline-block text-sm font-semibold text-scarlet hover:text-scarlet/80"
+      >
+        &larr; Back to all posts
+      </a>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
