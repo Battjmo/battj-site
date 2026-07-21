@@ -2,6 +2,7 @@
 title: "LLMs Will Only Get You So Far"
 description: "LLM-assisted coding gets startups further, faster than ever — until it doesn't. Here's why that gap is where experienced engineering help earns its keep."
 pubDate: 2026-07-14
+tags: ["AI-assisted coding", "startup engineering", "LLM coding tools", "engineering management", "technical debt"]
 ---
 
 I will admit right off the bat that I am a luddite when it comes to web development. Adopting new technologies opens the door to a whole host of problems:
