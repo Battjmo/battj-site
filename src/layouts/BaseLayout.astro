@@ -30,6 +30,7 @@ const ogImageURL = new URL('/battj-logo.png', Astro.site);
     {tags && tags.length > 0 && <meta name="keywords" content={tags.join(', ')} />}
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Battj LLC Blog" href="/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
