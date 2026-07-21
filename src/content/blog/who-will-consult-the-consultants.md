@@ -15,7 +15,7 @@ That product consists of one or more implementations of legacy systems. Likely s
 Now that executives are actually paying attention to what’s going on in that sad stew, the task of bringing it under their purview feels insurmountable. How do they...
 
 - decide on what they need to do to get out of this mess with input from all of the stakeholders with a bad taste still in their mouths?
-- hire and train the team they need to prevent the same problems from recurring and drive revenue?
+- [hire and train the team](/blog/hire-junior-devs) they need to prevent the same problems from recurring and drive revenue?
 - scope, plan, and execute the work?
 - decide on a cogent AI strategy that will maximize its usefulness without creating reliability problems they cannot afford?
 
