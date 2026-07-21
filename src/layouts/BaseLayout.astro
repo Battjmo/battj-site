@@ -4,12 +4,20 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  tags?: string[];
+  type?: 'website' | 'article';
+  pubDate?: Date;
 }
 
 const {
   title = 'Battj LLC — Engineering Management for Growing Startups',
   description = 'Engineering management services for mid-stage startups ready to professionalize their team, infrastructure, and codebase.',
+  tags,
+  type = 'website',
+  pubDate,
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -18,6 +26,8 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {tags && tags.length > 0 && <meta name="keywords" content={tags.join(', ')} />}
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +36,20 @@ const {
       rel="stylesheet"
     />
     <title>{title}</title>
+
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Battj LLC" />
+    {type === 'article' && pubDate && (
+      <meta property="article:published_time" content={pubDate.toISOString()} />
+    )}
+    {type === 'article' && tags && tags.map((tag) => <meta property="article:tag" content={tag} />)}
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body class="antialiased">
     <slot />

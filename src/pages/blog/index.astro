@@ -9,7 +9,11 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<BaseLayout title="Blog — Battj LLC" description="Notes on engineering management for growing startups.">
+<BaseLayout
+  title="Blog — Battj LLC"
+  description="Notes on engineering management for growing startups."
+  tags={['engineering management', 'startup engineering', 'fractional CTO', 'technical leadership']}
+>
   <Header />
   <main>
     <section class="mx-auto max-w-3xl px-6 py-32">

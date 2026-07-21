@@ -2,6 +2,7 @@
 title: "Who Will Consult the Consultants?"
 description: "Enterprises that outsourced their tech stack for decades now face a legacy mess no one owns — and the only way out is hiring a consultant who's cleaned this up before."
 pubDate: 2026-07-14
+tags: ["enterprise IT consulting", "legacy systems", "technical debt", "IT modernization", "fractional CTO", "AI strategy"]
 ---
 
 

@@ -7,9 +7,10 @@ interface Props {
   title: string;
   description: string;
   pubDate: Date;
+  tags?: string[];
 }
 
-const { title, description, pubDate } = Astro.props;
+const { title, description, pubDate, tags } = Astro.props;
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -18,7 +19,13 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={`${title} — Battj LLC`} description={description}>
+<BaseLayout
+  title={`${title} — Battj LLC`}
+  description={description}
+  tags={tags}
+  type="article"
+  pubDate={pubDate}
+>
   <Header />
   <main>
     <article class="mx-auto max-w-3xl px-6 py-32">

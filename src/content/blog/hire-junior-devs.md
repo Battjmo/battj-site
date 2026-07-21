@@ -2,6 +2,7 @@
 title: "Hire Junior Devs!"
 description: "Everyone wants to hire senior developers. Here's why a team built around junior developers — mentored well — outperforms one stacked with seniors in the long run."
 pubDate: 2026-07-20
+tags: ["hiring junior developers", "engineering team building", "developer mentorship", "engineering management", "software team culture"]
 ---
 
 Everyone in 2026 wants to hire senior developers. I’ve worked with companies that want to build entire dev teams out of senior developers. That sounds nice on paper, but is not the way to build a good team. When I’m putting together a team, I like to include a range of experience levels, most prominently junior developers.
