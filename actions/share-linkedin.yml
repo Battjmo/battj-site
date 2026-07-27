@@ -1,0 +1,38 @@
+# .github/workflows/share-linkedin.yml
+name: Share new posts to LinkedIn
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/content/blog/**"
+
+permissions:
+  contents: read
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Find newly added posts
+        id: new_posts
+        run: |
+          FILES=$(git diff --name-only --diff-filter=A "${{ github.sha }}" -- 'src/content/blog/**' | tr '\n' ' ')
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+
+      - name: Share to LinkedIn
+        if: steps.new_posts.outputs.files != ''
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_AUTHOR_URN: ${{ secrets.LINKEDIN_AUTHOR_URN }}
+          SITE_URL: https://battj.llc
+          BLOG_PATH_PREFIX: /blog
+        run: node scripts/share-linkedin.mjs ${{ steps.new_posts.outputs.files }}
