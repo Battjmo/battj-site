@@ -1,15 +1,12 @@
 // scripts/share-linkedin.mjs
-// Usage: node scripts/share-linkedin.mjs src/content/blog/my-post.md [...]
-// Requires env: LINKEDIN_ACCESS_TOKEN, LINKEDIN_AUTHOR_URN, SITE_URL
-// Optional env: BLOG_PATH_PREFIX (default "/blog")
+// Usage: node scripts/share-linkedin.mjs src/blog/my-post.md [...]
+// Requires env: LINKEDIN_ACCESS_TOKEN, LINKEDIN_AUTHOR_URN
 
 import { readFileSync } from "node:fs";
 import { basename } from "node:path";
 
 const TOKEN = process.env.LINKEDIN_ACCESS_TOKEN;
-const AUTHOR = process.env.LINKEDIN_AUTHOR_URN; // e.g. urn:li:person:AbC123
-const SITE = (process.env.SITE_URL ?? "").replace(/\/$/, "");
-const PREFIX = process.env.BLOG_PATH_PREFIX ?? "/blog";
+const AUTHOR = process.env.LINKEDIN_AUTHOR_URN; 
 
 if (!TOKEN || !AUTHOR || !SITE) {
   console.error("Missing LINKEDIN_ACCESS_TOKEN, LINKEDIN_AUTHOR_URN, or SITE_URL");
@@ -98,7 +95,7 @@ for (const file of files) {
 
     const slug = fm.slug || slugFromFile(file);
     const title = fm.title || slug;
-    const url = `${SITE}${PREFIX}/${slug}/`;
+    const url = `https://www.battj.llc/blog/${slug}/`;
 
     console.log(`Waiting for ${url} to go live...`);
     const live = await waitForLive(url);
