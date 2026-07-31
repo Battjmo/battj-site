@@ -1,9 +1,17 @@
 ---
+import Dropdown from './Dropdown.astro';
+
 const navLinks = [
-  { href: '/#services', label: 'Services' },
   { href: '/#approach', label: 'Approach' },
   { href: '/blog', label: 'Blog' },
   { href: '/#contact', label: 'Contact' },
+];
+
+const serviceLinks = [
+  { href: '/#leadership', label: 'Leadership' },
+  { href: '/#devops-infrastructure', label: 'DevOps & Infrastructure' },
+  { href: '/#devex-codebase', label: 'DevEx & Codebase' },
+  { href: '/#care', label: 'Care' },
 ];
 ---
 
@@ -13,16 +21,9 @@ const navLinks = [
       Battj<span class="text-scarlet">.</span>
     </a>
     <nav class="hidden items-center gap-8 sm:flex">
-      {
-        navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="text-sm font-medium text-frosted transition-colors hover:text-frozen"
-          >
-            {link.label}
-          </a>
-        ))
-      }
+      
+        <Dropdown label="services" items={navLinks}/>
+
     </nav>
     <a
       href="#contact"

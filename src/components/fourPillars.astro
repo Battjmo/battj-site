@@ -1,24 +1,28 @@
 ---
 const pillars = [
   {
+    id: "leadership",
     title: "Leadership",
     description:
       "Some engineers and an LLM do not a scalable product make. You need someone who understands what engineers do to establish standards, provide help and guidance, and make sure that they are ready to handle a crisis. This points from the engineering team outwards as well: establishing priorities, making big decisions, and taking as much as possible off of the engineers' plates so that they can flow forever.",
     icon: "◈",
   },
   {
+    id: "devops-infrastructure",
     title: "DevOps & Infrastructure",
     description:
       "Ensure that the road your engineers' code follows from their computer to the your customers is intuitive, reliable, and has ample signage and guardrails. And once that code has reached the customers, ensure that it keeps working for them as much as possible.",
     icon: "◎",
   },
   {
+    id: "devex-codebase",
     title: "DevEx & Codebase",
     description:
       "DevOps covers the road your code follows to production. DevEx covers the road your developer takes from their mind to their customers. Their tools and processes should be fast, quiet, powerful, and reliable.",
     icon: "◇",
   },
   {
+    id: "care",
     title: "Care",
     description:
       "Many organizations see engineers as a necessary evil. That is not nice for the engineers, lowers the quality of their work, and is self-perpetuating because it keeps them from being engaged with the rest of the org and its mission. They should feel valued, and that they have real ownership of their work, from a technical and product perspective.",
@@ -47,7 +51,10 @@ const pillars = [
     <div class="mt-14 grid gap-6 sm:grid-cols-2">
       {
         pillars.map((pillar) => (
-          <article class="group rounded-2xl border border-frosted bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
+          <article
+            id={pillar.id}
+            class="group scroll-mt-24 rounded-2xl border border-frosted bg-white p-8 shadow-sm transition-shadow hover:shadow-md"
+          >
             <span class="text-2xl text-scarlet" aria-hidden="true">
               {pillar.icon}
             </span>
